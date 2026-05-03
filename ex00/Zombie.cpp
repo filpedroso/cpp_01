@@ -6,7 +6,7 @@
 /*   By: fpedroso <fpedroso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 17:55:58 by fpedroso          #+#    #+#             */
-/*   Updated: 2026/05/03 19:02:02 by fpedroso         ###   ########.fr       */
+/*   Updated: 2026/05/03 19:56:33 by fpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,10 @@ Zombie::Zombie(std::string _name)
 
 void	Zombie::announce( void )
 {
-	std::cout << name << ":  BraiiiiiiinnnzzzZ...";
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+Zombie::~Zombie()
+{
+	std::cout << name << " was eliminated." << std::endl;
 }
