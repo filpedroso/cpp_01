@@ -1,0 +1,41 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fpedroso <fpedroso@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/05/03 18:03:14 by fpedroso          #+#    #+#              #
+#    Updated: 2026/05/03 18:07:26 by fpedroso         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = brainz
+CC = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+
+FILES = main.cpp		\
+		newZombie.cpp	\
+		Zombie.cpp		\
+		randomChump.cpp
+
+OBJ = $(FILES:.cpp=.o)
+
+%.o: %.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
+$(NAME): $(OBJ)
+	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+
+
+all: $(NAME)
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
