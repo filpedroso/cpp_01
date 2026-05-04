@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpedroso <fpedroso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/03 17:56:05 by fpedroso          #+#    #+#             */
-/*   Updated: 2026/05/03 19:52:02 by fpedroso         ###   ########.fr       */
+/*   Created: 2026/05/03 17:55:58 by fpedroso          #+#    #+#             */
+/*   Updated: 2026/05/03 19:56:33 by fpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-int	main(void)
+void    Zombie::setName( const std::string& name )
 {
-	Zombie*	zombieHeap;
+    _name = name;
+}
 
-	randomChump("Stack Paolo");
-	zombieHeap = newZombie("Heap Jeferson");
-	zombieHeap->announce();
+void	Zombie::announce( void )
+{
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-	delete zombieHeap;
-	return (0);
+Zombie::~Zombie()
+{
+	std::cout << _name << " was eliminated." << std::endl;
 }

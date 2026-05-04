@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpedroso <fpedroso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/03 17:56:05 by fpedroso          #+#    #+#             */
-/*   Updated: 2026/05/03 19:52:02 by fpedroso         ###   ########.fr       */
+/*   Created: 2026/05/04 12:32:53 by fpedroso          #+#    #+#             */
+/*   Updated: 2026/05/04 12:32:53 by fpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 
-int	main(void)
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+
+#include <string>
+
+class Zombie
 {
-	Zombie*	zombieHeap;
+	private:
+		std::string	_name;
 
-	randomChump("Stack Paolo");
-	zombieHeap = newZombie("Heap Jeferson");
-	zombieHeap->announce();
+	public:
+		~Zombie();
 
-	delete zombieHeap;
-	return (0);
-}
+        void    setName( const std::string& name );
+		void    announce( void );
+};
+
+Zombie* zombieHorde( int N, std::string name );
+
+#endif

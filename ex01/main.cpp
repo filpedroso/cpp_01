@@ -5,21 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpedroso <fpedroso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/03 17:56:05 by fpedroso          #+#    #+#             */
-/*   Updated: 2026/05/03 19:52:02 by fpedroso         ###   ########.fr       */
+/*   Created: 2026/05/04 12:33:02 by fpedroso          #+#    #+#             */
+/*   Updated: 2026/05/04 12:33:02 by fpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "Zombie.hpp"
+#include <iostream>
 
 int	main(void)
 {
-	Zombie*	zombieHeap;
+    int amount = 6;
+	Zombie* horde = zombieHorde(amount, "jack");
 
-	randomChump("Stack Paolo");
-	zombieHeap = newZombie("Heap Jeferson");
-	zombieHeap->announce();
+    for (int i = 0; i < amount; i++) {
+        std::cout << "Zombie " << i << std::endl;
+        horde[i].announce();
+        std::cout << std::endl;
+    }
 
-	delete zombieHeap;
+    delete [] horde;
+
 	return (0);
 }

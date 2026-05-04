@@ -10,14 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brainz
+NAME = moarbrainz
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 FILES = main.cpp		\
-		newZombie.cpp	\
 		Zombie.cpp		\
-		randomChump.cpp
+		zombieHorde.cpp
 
 OBJ = $(FILES:.cpp=.o)
 
@@ -37,5 +36,10 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+val: all
+	valgrind --leak-check=full --show-leak-kinds=all --trace-children=yes \
+		--track-origins=yes --trace-children-skip=''*/bin/*,*/sbin/*'' \
+		--track-fds=yes --keep-debuginfo=yes --tool=memcheck ./moarbrainz
 
 .PHONY: all clean fclean re
