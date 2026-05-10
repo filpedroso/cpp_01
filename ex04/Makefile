@@ -15,6 +15,7 @@ CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 FILES = main.cpp		\
+		WordReplacer.cpp
 
 
 

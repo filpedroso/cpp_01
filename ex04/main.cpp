@@ -10,15 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "WordReplacer.hpp"
+#include <iostream>
+#include <string>
+
 int main(int argc, char **argv)
 {
-    FileClass   file;
-
     if (argc != 4)
         return (1);
 
-    file = FileClass(argv[1]);
-    file.replace(argv[2], argv[3]);
+    try
+    {
+        WordReplacer   file(argv[1]);
+        std::cout << "Loaded File:" << std::endl;
+        file.printItself();
 
-    
+        file.replace(argv[2], argv[3]);
+        std::cout << "Replaced Loaded File:" << std::endl;
+        file.printItself();
+
+        file.outputFile();
+
+        WordReplacer file2(std::string(argv[1]) + ".replace");
+        std::cout << "Replaced Created File:" << std::endl;
+        file2.printItself();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "ERROR: " << e.what() << '\n';
+        return (1);
+    }
+    return (0);
 }
