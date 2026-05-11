@@ -20,7 +20,10 @@ HumanB::HumanB( std::string name ) :
 
 void	HumanB::attack()
 {
-    std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
+    if (!this->_weapon)
+        std::cout << _name << " attacks with their hands" << std::endl;
+    else
+        std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
 }
 
 void	HumanB::setWeapon( Weapon& w )
